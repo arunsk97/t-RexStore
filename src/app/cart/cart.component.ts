@@ -11,6 +11,7 @@ export class CartComponent {
   public cartItems ={};
   public pdts: any;
   public cartPdts =[];
+  total = 0;
   isResized: boolean = window.innerWidth > 700 ? true : false;
 
   onValueChange(event, item){
@@ -43,12 +44,11 @@ export class CartComponent {
   }
 
   buy(){
+    window.alert('Thank you for the purchase. Your total Amount was Rs.' + this.totalAmount() +'.  Please visit us again!!! ')
     this.cartPdts.forEach(item => {
       this.cartItems[item.id] = 0;
     })
     this.cartPdts = [];
-    window.alert('Thank you for the purchase. Your total Amount was Rs.' + this.totalAmount() +'.  Please visit us again!!! ')
-
   }
 
   totalAmount(){
