@@ -1,19 +1,20 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
+<div class="toolbar" role="banner" (window:resize)="onResize($event)">
   <img
-    width="40"
+    class="logo-style"
+    routerLink="/Home"
     alt="Trex Logo"
-    src="../assets/FOS2TREX.png"
+    src="../assets/FOS2TREXBLACK.png"
   />
-  <span>T-Rex-Store</span>
+  <span routerLink="/Home" class="title-class">{{title}}</span>
     <div class="spacer"></div>
-    <a aria-label="Add to Cart" routerLink="/Cart" title="Cart">
-      <img
-        width="40"
-        alt="Cart Logo"
-        src="../assets/cart.jpg"
-      />
+    <a aria-label="Go to Home" routerLink="/Home" title="Home">
+      <i class="fa fa-home"></i>
+    </a>
+    <a aria-label="Go to Cart" routerLink="/Cart" title="Cart" class="headerIcons">
+      <i class="fa fa-shopping-cart"></i>
+      <span *ngIf="cartTotal() > 0 && isHome" class="badge">{{cartTotal()}}</span>
     </a>
 </div>
 <router-outlet></router-outlet>

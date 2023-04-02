@@ -1,5 +1,12 @@
-<div style="padding-top: 60px">
-  <app-lnav-component></app-lnav-component>
-  <app-products></app-products>
+
+<div class="flex-container" (window:resize)="onResize($event)">
+  <div class="lnav-div" *ngIf="isResized">
+    <app-lnav-component (filterItems)="filterFn($event)"></app-lnav-component>
+  </div>
+  <div class="main-div" [ngStyle]="{'width': isResized ? '80%' :  '100%' }">
+    <app-products ></app-products>
+  </div>
 </div>
+
+
 

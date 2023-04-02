@@ -1,4 +1,52 @@
+<div class="cart-container" (window:resize)="onResize($event)">
+  <div class="cart-title">
+    <h1>Cart</h1>
+    <img width="7%" alt="Cart-Logo" src="../../assets/cart.jpg" />
+  </div>
+  <div class="content-style" *ngIf="cartPdts.length > 0">
+    <div class="table-style">
+      <table class="table-padding">
+        <tr id="cartRow" *ngFor="let item of cartPdts">
+          <td *ngIf="isResized" class="td-width">
+            <div class="imgClass">
+              <img width="100%" alt="Trex Logo" src="{{ item.imageURL }}" />
+            </div>
+          </td>
+          <td class="td-width td-font">
+            <div>
+              <span>{{ item.name }}</span>
+            </div>
+            <div>
+              <span>Rs.{{ item.price }}</span>
+            </div>
+          </td>
+          <td class="td-width">
+            <label for="Qty">Qty:</label>
+            <input
+              type="number"
+              id="Qty"
+              value="{{ cartItems[item.id] }}"
+              min="1"
+              max="{{ item.quantity + 1 }}"
+              (input)="onValueChange($event, item)"
+            />
+          </td>
+          <td class="td-width">
+            <button class="delete-style" (click)="delete(item)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-<div style="padding-top: 60px">
-  <p>cart works!</p>
+    <div><hr /></div>
+    <div class="total-container">
+      <span class="totalAmount"
+        >Total Amount : Rs.{{ totalAmount() }}
+      </span>
+      <button (click)="buy()" class="buy-style">Proceed to Buy</button>
+    </div>
+  </div>
+  <div class="noPdts" *ngIf="cartPdts.length == 0">
+    <span>No Products!!!<br/>Why wait add more</span>
+  </div>
 </div>

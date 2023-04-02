@@ -1,1 +1,69 @@
-<p>products works!</p>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+<div (window:resize)="onResize($event)">
+  <div class="flex-box searchMargin">
+    <img src="../../assets/magGlass.png" [ngClass]="isResized ? 'searchImg_Resized' : 'searchImg'">
+    <input
+      type="text"
+      id="searchPdts"
+      style="width: 30%"
+      (input)="onSearch($event)"
+      placeholder="Search"
+    />
+    <button (click)="showFilter()" *ngIf="isResized" class="filter-style">
+      <i class="fa fa-filter"></i>
+    </button>
+  </div>
+  <div class="flex-box wrapper">
+    <div id="pdtCard" class="divstyle flex-box" *ngFor="let pdt of pdts">
+      <div class="flex-box">
+        <img
+          width="80%"
+          height="80%"
+          alt="Trex Logo"
+          src="{{ pdt.imageURL }}"
+        />
+      </div>
+
+      <div class="flex-box productCard-style">
+        <div class="flex-box flex-direction-column width-class50">
+          <div class="productName-style">
+            <span>{{ pdt.name }}</span>
+          </div>
+          <div class="price-style">
+            <span class="bold-style">Rs.{{ pdt.price }}</span>
+          </div>
+        </div>
+        <div class="flex-box width-class50">
+          <div class="flex-box" *ngIf="cartItems[pdt.id] == 0">
+            <button class="addToCart-style" (click)="addToCart(pdt)">
+              Add to Cart
+            </button>
+          </div>
+          <div class="items-style" *ngIf="cartItems[pdt.id] > 0">
+            <div (click)="removeFromCart(pdt)">
+              <i class="glyphicon glyphicon-minus"></i>
+            </div>
+            <div>
+              <span>{{ cartItems[pdt.id] }}</span>
+            </div>
+            <div (click)="addToCart(pdt)">
+              <i class="glyphicon glyphicon-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isResized" class="popup" id="popup">
+  <i class="fa fa-close closeIcon" (click)="closeFilter()"></i>
+  <app-lnav-component></app-lnav-component>
+  <div class="popupButtons">
+    <button class="apply-style" (click)="apply()">Apply</button>
+    <button class="close-style" (click)="closeFilter()">Close</button>
+  </div>
+</div>

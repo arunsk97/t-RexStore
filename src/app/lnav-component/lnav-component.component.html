@@ -1,1 +1,58 @@
-<p>lnav-component works!</p>
+<div class="lnav-container">
+  <div>
+    <h2>Colour</h2>
+    <div class="div-container">
+      <table class="table-container">
+        <tr *ngFor="let color of colours; let i = index">
+          <td class="checkbox-padding">
+            <input *ngIf="!color.isSelected" type="checkbox" name="colour" id="{{i}}" (change)="onSelect($event, color)">
+            <input *ngIf="color.isSelected" type="checkbox" name="colour" id="{{i}}" (change)="onSelect($event, color)" checked>
+          </td>
+          <td>{{color.color}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h2>Gender</h2>
+    <div class="div-container">
+      <table class="table-container">
+        <tr *ngFor="let gender of genders; let i = index">
+          <td class="checkbox-padding">
+            <input *ngIf="!gender.isSelected" type="checkbox" name="gender" id="{{i}}" (change)="onSelect($event, gender)">
+            <input *ngIf="gender.isSelected" type="checkbox" name="gender" id="{{i}}" (change)="onSelect($event, gender)" checked>
+          </td>
+          <td>{{gender.gender}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h2>Price</h2>
+    <div class="div-container">
+      <table class="table-container">
+        <tr *ngFor="let price of prices; let i = index">
+          <td class="checkbox-padding">
+            <input *ngIf="!price.isSelected" type="checkbox" name="price" id="{{i}}" (change)="onSelect($event, price)">
+            <input *ngIf="price.isSelected" type="checkbox" name="price" id="{{i}}" (change)="onSelect($event, price)" checked>
+          </td>
+          <td>Rs.{{price.price}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <h2>Type</h2>
+    <div class="div-container">
+      <table class="table-container">
+        <tr *ngFor="let type of types; let i = index">
+          <td class="checkbox-padding">
+            <input *ngIf="!type.isSelected" type="checkbox" name="type" id="{{i}}" (change)="onSelect($event, type)">
+            <input *ngIf="type.isSelected" type="checkbox" name="type" id="{{i}}" (change)="onSelect($event, type)" checked>
+          </td>
+          <td>{{type.type}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

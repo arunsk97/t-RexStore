@@ -1,0 +1,33 @@
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 60px;
+}
+input[type=checkbox]:hover{
+  box-shadow: 1px 1px 8px 0px rgb(0, 128, 255);
+  border-color: rgb(0, 128, 255) ;
+  transform: translateY(-4px);
+}
+
+.lnav-container{
+  display:flex;
+  flex-direction: column;
+  gap: 5rem ;
+  padding: 2rem 5rem 5rem 2rem;
+}
+
+.checkbox-padding{
+  padding: .3rem;
+}
+
+.div-container{
+  padding-left: 10px;
+}
+
+.table-container{
+  padding: 1rem;
+}
+
+h2{
+  font-family: 'Grand Hotel', cursive;
+}

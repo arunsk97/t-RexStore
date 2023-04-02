@@ -1,0 +1,105 @@
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.badge {
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  right: 1rem !important;
+  width: 13px !important;
+  padding-left: 6px !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+}
+.cart-container{
+  padding-top: 60px;
+  padding-left: 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.delete-style{
+  color:#fff;
+  background: #000;
+  border-radius: 5%;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: bold;
+}
+
+.delete-style:hover{
+  background-color: rgb(255,0,0);
+  border-color: rgb(255,0,0);
+}
+
+.cart-title{
+  display: flex;
+  justify-content: center;
+  font-family: 'Grand Hotel', cursive;
+  font-size: 2vw;
+}
+
+.content-style{
+  padding-top: 10px;
+}
+
+.table-style{
+  display: flex; justify-content: center;width: 100%;
+}
+
+.table-padding{
+  width: 80%; padding: 1rem;
+}
+
+#cartRow{
+  padding: 1rem;
+}
+
+.td-width{
+  width:25%
+}
+
+.td-font{
+  font-weight: bold;
+}
+
+.imgClass{
+  height: 100px;
+  width: 100px;
+}
+
+.total-container{
+  display: flex; justify-content: center; gap: 5rem
+}
+
+.totalAmount{
+  font-weight: bolder;
+}
+
+.noPdts{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  width: 100%;
+  font-weight: bolder;
+  font-family: 'Grand Hotel', cursive;
+  font-size: 16px;
+}
+
+.buy-style{
+  color:#fff;
+  background: #000;
+  border-radius: 5%;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: bold;
+}
+
+.buy-style:hover{
+  background-color: rgb(4, 255, 0);
+  border-color: rgb(4, 255, 0);
+}
