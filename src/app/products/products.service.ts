@@ -7,11 +7,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductsService {
-  public cartItems: any[]=[];
+  public cartItems ={};
+  public filter = {};
   public productsURL: string = 'https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json';//https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json
   constructor( private http: HttpClient) { }
+
   setCartPdts(item:any){
-    this.cartItems.push(item);
+    this.cartItems = item;
   }
 
   getCartItems(){
@@ -21,5 +23,14 @@ export class ProductsService {
   getproducts(){
     return this.http.get(this.productsURL);
   }
+
+  setFilter(data){
+    this.filter = data;
+  }
+
+  getFilter(){
+    return this.filter;
+  }
+
 
 }

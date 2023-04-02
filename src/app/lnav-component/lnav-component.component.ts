@@ -33,6 +33,7 @@ export class LnavComponentComponent {
       }else{
         this.filter.type.push(item.type)
       }
+      this.productsService.setFilter(this.filter);
       this.filterItems.emit(this.filter);
     }else{
       if(item.color){
@@ -48,20 +49,28 @@ export class LnavComponentComponent {
         let ind = this.filter.type.findIndex(x=> x == item.type);
         this.filter.type.splice(ind, 1);
       }
+      this.productsService.setFilter(this.filter);
       this.filterItems.emit(this.filter);
     }
   }
 
+  applyFilter(){
+    this.filterItems.emit(this.filter);
+  }
+
   ngOnInit(){
+    //getting already applied filters
+    let filter: any = this.productsService.getFilter();
+    if(Object.keys(filter).length > 0) this.filter = filter;
     //getting data from server
     this.productsService.getproducts().subscribe(resp=>{
       this.pdts = resp;
       // filtering the pdts table to create lnav
       this.pdts.forEach((item:any) =>{
-        if(!this.colours.some(items=> items.color == item.color)) this.colours.push({'color':item.color});
-        if(!this.genders.some(items=> items.gender == item.gender)) this.genders.push({'gender':item.gender});
-        if(!this.prices.some(items=> items.price == item.price)) this.prices.push({'price':item.price});
-        if(!this.types.some(items=> items.type == item.type)) this.types.push({'type':item.type});
+        if(!this.colours.some(items=> items.color == item.color)) this.colours.push({'color':item.color, 'isSelected':this.filter.color.includes(item.color)});
+        if(!this.genders.some(items=> items.gender == item.gender)) this.genders.push({'gender':item.gender, 'isSelected':this.filter.gender.includes(item.gender)});
+        if(!this.prices.some(items=> items.price == item.price)) this.prices.push({'price':item.price, 'isSelected':this.filter.price.includes(item.price)});
+        if(!this.types.some(items=> items.type == item.type)) this.types.push({'type':item.type, 'isSelected':this.filter.type.includes(item.type)});
       });
     })
   }
