@@ -1,1 +1,38 @@
-<p>lnav-component works!</p>
+<div>
+  <div>
+    <h3>Colour</h3>
+    <table *ngFor="let colour of colours; let i = index">
+      <tr>
+        <td><input type="checkbox" name="colour" id="{{i}}" (change)="onSelect($event, colour)"></td>
+        <td>{{colour.color}}</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h3>Gender</h3>
+    <table *ngFor="let gender of genders; let i = index">
+      <tr>
+        <td><input type="checkbox" name="gender" id="{{i}}" (change)="onSelect($event, gender)"></td>
+        <td>{{gender.gender}}</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h3>Price</h3>
+    <table *ngFor="let price of prices; let i = index">
+      <tr>
+        <td><input type="checkbox" name="price" id="{{i}}" (change)="onSelect($event, price)"></td>
+        <td>{{price.price}}</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h3>Type</h3>
+    <table *ngFor="let type of types; let i = index">
+      <tr>
+        <td><input type="checkbox" name="type" id="{{i}}" (change)="onSelect($event, type)"></td>
+        <td>{{type.type}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

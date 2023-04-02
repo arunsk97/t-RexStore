@@ -1,1 +1,24 @@
-<p>products works!</p>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div>
+  <div style="display: flex; justify-content: center">
+    <input type="text" class="search-box" placeholder="search for products" />
+    <a alt="Trex Logo" width="100%" src="../../assets/magGlass.png" ></a>
+  </div>
+  <div class="flex-box" >
+    <div class="divstyle" *ngFor="let pdt of pdts">
+      <img width="80%" height="80%" alt="Trex Logo" src="{{pdt.imageURL}}" />
+      <div><span>{{pdt.name}}</span></div>
+      <div style="display: flex; padding-top: 4px;">
+        <div style="width: 50%;justify-content: left;"><span style="font-weight: bold;">Rs.{{pdt.price}}</span></div>
+        <div style="width: 50%;">
+          <div style="display: flex; justify-content: center;" *ngIf="cartItems[pdt.id] == 0"><button (click)="addToCart(pdt)">Add to Cart</button></div>
+          <div style="display: flex;" *ngIf="cartItems[pdt.id] > 0">
+            <div style="width: 33%;" (click)="removeFromCart(pdt)"><i class="glyphicon glyphicon-minus"></i></div>
+            <div style="width: 33%;"><span>{{cartItems[pdt.id]}}</span></div>
+            <div style="width: 33%;" (click)="addToCart(pdt)"><i class="glyphicon glyphicon-plus"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

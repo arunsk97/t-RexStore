@@ -1,5 +1,9 @@
-<div style="padding-top: 60px">
-  <app-lnav-component></app-lnav-component>
-  <app-products></app-products>
+<div class="flex-container">
+  <div class="lnav-div">
+    <app-lnav-component (filterItems)="filterFn($event)"></app-lnav-component>
+  </div>
+  <div class="main-div">
+    <app-products></app-products>
+  </div>
 </div>
 

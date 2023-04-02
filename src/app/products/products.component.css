@@ -1,0 +1,27 @@
+/* .flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 60px;
+} */
+.flex-box{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.divstyle{
+  height:250px;
+  width: 250px;
+  margin: 10px;
+}
+.search-box{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: ridge;
+  /* background: url(../../assets/magGlass.png) no-repeat scroll 7px 7px; */
+  padding-left:30px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
