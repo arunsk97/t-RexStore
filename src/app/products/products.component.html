@@ -2,9 +2,9 @@
   rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 />
-<div (window:resize)="onResize($event)">
+<div (window:resize)="onResize($event)" class="margin-class">
   <div class="flex-box searchMargin">
-    <img src="../../assets/magGlass.png" [ngClass]="isResized ? 'searchImg_Resized' : 'searchImg'">
+    <!-- <img src="../../assets/magGlass.png" [ngClass]="isResized ? 'searchImg_Resized' : 'searchImg'"> -->
     <input
       type="text"
       id="searchPdts"

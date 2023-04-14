@@ -215,3 +215,7 @@ textarea:focus, input:focus{
   padding: 1rem;
   transition: transform linear .2s;
 }
+
+.margin-class{
+  margin-top: 10px;
+}
