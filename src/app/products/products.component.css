@@ -1,3 +1,8 @@
+@media (min-width: 775px){
+  .searchIcon{
+    right: 5px !important
+  }
+}
 
 .flex-box{
   display: flex;
@@ -36,8 +41,15 @@
 }
 
 .searchMargin{
+  display: flex;
+  position: relative;
+  width: 40%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 2%;
   font-family: 'Poppins', sans-serif;
+
 }
 
 textarea:focus, input:focus{
@@ -170,6 +182,13 @@ textarea:focus, input:focus{
 #searchPdts{
   border:none;
   border-bottom: solid 1px;
+  flex-grow: 1;
+}
+.searchIcon{
+  position: absolute;
+  font-size: 16px;
+  right: 35px;
+  color:#000;
 }
 #searchPdts:focus{
   border-bottom: solid;
